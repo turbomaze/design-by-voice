@@ -36,7 +36,7 @@ class App extends React.Component {
 
       const bigger = color.endsWith('bigger');
       const multiplier = bigger ? 1.5 : 1 / 1.5;
-      if (color.indexOf('paragraph') === -1) {
+      if (color.indexOf('paragraph') !== -1) {
         this.setState({ pSizeInPx: this.state.pSizeInPx * multiplier });
       } else {
         this.setState({ sizeInPx: this.state.sizeInPx * multiplier });
@@ -56,7 +56,14 @@ class App extends React.Component {
           }}>
           Header 1
         </h1>
-        <p style={{ fontSize: this.state.pSizeInPx + 'px' }}>This is Paragraph 1</p>
+        <p
+          style={{
+            transition: '0.25s',
+            transitionTimingFunction: 'ease-in',
+            fontSize: this.state.pSizeInPx + 'px',
+          }}>
+          This is Paragraph 1
+        </p>
       </div>
     );
   }
